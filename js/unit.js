@@ -6,7 +6,7 @@ var Unit = function () {
 	
 	//Stats used for identification, growth, breeding, etc.
 	this.name = "Background Pony";
-	this.gender;
+	this.sex;
 	this.age; //Days, not years. Might want to have a separate display for years, though.
 	this.kind;
 	this.karma;
@@ -97,6 +97,17 @@ var Unit = function () {
 	this.machines = (this.endurance) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2);
 	}
 	
+	this.setLevel = function(newLevel)
+	{
+		if (newLevel < 1) {newLevel = 1;}
+		if (newLevel > LevelTable.length) {newLevel = LevelTable.length;}
+		this.xp = LevelTable[newLevel - 1];
+		this.level = newLevel;
+		
+		//Update the base stats.
+		this.setDerivedSkills();
+	}
+	
 	this.levelUp = function(times)
 	{
 		if (typeof times == "undefined") {times = 1}
@@ -122,6 +133,26 @@ var Unit = function () {
 		
 		//Update the base stats.
 		this.setDerivedSkills();
+	}
+	
+	this.ToString = function()
+	{
+		result ="";
+		result += "Name: " + this.name + "\n";
+		result += "Age: " + this.age + "\n";
+		result += "Sex: " + this.sex + "\n";
+		result += "Kind: " + this.kind + "\n";
+		result += "Level: " + this.level + "\n";
+		result += "Strength: " + this.strength + "\n";
+		result += "Perception: " + this.perception + "\n";
+		result += "Endurance: " + this.endurance + "\n";
+		result += "Charisma: " + this.charisma + "\n";
+		result += "Intelligence: " + this.intelligence + "\n";
+		result += "Agility: " + this.agility + "\n";
+		result += "Luck: " + this.luck + "\n";
+		result += "Machines: " + this.machines + "\n";
+		result += "Biology: " + this.biology + "\n";
+		return result;
 	}
 	
 	//Return an instance.

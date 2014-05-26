@@ -1,9 +1,10 @@
 var runTests = function() 
 {
-	reportPassFail(testSetSpecial5());
 	reportPassFail(testSetSpecial321());
 	reportPassFail(testSetSpecialFAILME());
+	reportPassFail(testSetSpecial5());
 	
+	test.setLevel(1);
 	
 }
 
