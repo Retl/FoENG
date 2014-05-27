@@ -17,6 +17,7 @@ var Unit = function () {
 	this.skillpoints;
 	
 	//SPECIAL. Most other stats are derived from this.
+	//[0 base, 1 tag, 2 ranks, 3 perks, 4 books, 5 items, 6 misc]
 	this.strength;
 	this.perception;
 	this.endurance;
@@ -26,25 +27,25 @@ var Unit = function () {
 	this.luck;
 	
 	//General applied skill stats.
-	this.barter;
-	this.explosives;
-	this.lockpick;
-	this.mew;
-	this.medicine;
-	this.melee;
-	this.firearms;
-	this.sneak;
-	this.speech;
-	this.survival;
-	this.unarmed;
+	this.barter = [0, 0, 0, 0, 0, 0, 0];
+	this.explosives = [0, 0, 0, 0, 0, 0, 0];
+	this.lockpick = [0, 0, 0, 0, 0, 0, 0];
+	this.mew = [0, 0, 0, 0, 0, 0, 0];
+	this.medicine = [0, 0, 0, 0, 0, 0, 0];
+	this.melee = [0, 0, 0, 0, 0, 0, 0];
+	this.firearms = [0, 0, 0, 0, 0, 0, 0];
+	this.sneak = [0, 0, 0, 0, 0, 0, 0];
+	this.speech = [0, 0, 0, 0, 0, 0, 0];
+	this.survival = [0, 0, 0, 0, 0, 0, 0];
+	this.unarmed = [0, 0, 0, 0, 0, 0, 0];
 	
 	
 	//Science knowledge stats.
-	this.agriculture; //Good for creating and sustaining plant growth. Especially for food.
-	this.architecture; //Necessary for leading construction. Can direct others with the physical strength to complete it.
-	this.biology; //Includes applications like health. Helps with hunting.
-	this.chemistry;
-	this.machines;
+	this.agriculture = [0, 0, 0, 0, 0, 0, 0]; //Good for creating and sustaining plant growth. Especially for food.
+	this.architecture = [0, 0, 0, 0, 0, 0, 0]; //Necessary for leading construction. Can direct others with the physical strength to complete it.
+	this.biology = [0, 0, 0, 0, 0, 0, 0]; //Includes applications like health. Helps with hunting.
+	this.chemistry = [0, 0, 0, 0, 0, 0, 0];
+	this.machines = [0, 0, 0, 0, 0, 0, 0];
 	
 	//These stats depend less on character growth, and more on scenario.
 	this.currentWeight;
@@ -76,25 +77,25 @@ var Unit = function () {
 	
 	this.setDerivedSkills = function()
 	{
-	this.barter = (this.charisma * 2) + Math.floor(this.luck / 2);
-	this.explosives = (this.perception * 2) + Math.floor(this.luck / 2);
-	this.lockpick = (this.perception * 2) + Math.floor(this.luck / 2);
-	this.mew = (this.perception * 2) + Math.floor(this.luck / 2);
-	this.medicine = (this.intelligence * 2) + Math.floor(this.luck / 2); //Do we really need medicine? We have a Biology and Chemistry science skill.
-	this.melee = (this.strength * 2) + Math.floor(this.luck / 2);
-	this.firearms = (this.agility * 2) + Math.floor(this.luck / 2);
-	this.sneak = (this.agility * 2) + Math.floor(this.luck / 2);
-	this.speech = (this.charisma * 2) + Math.floor(this.luck / 2);
-	this.survival = (this.endurance * 2) + Math.floor(this.luck / 2);
-	this.unarmed = (this.endurance * 2) + Math.floor(this.luck / 2);
+	this.barter[0] = (this.charisma * 2) + Math.floor(this.luck / 2);
+	this.explosives[0] = (this.perception * 2) + Math.floor(this.luck / 2);
+	this.lockpick[0] = (this.perception * 2) + Math.floor(this.luck / 2);
+	this.mew[0] = (this.perception * 2) + Math.floor(this.luck / 2);
+	this.medicine[0] = (this.intelligence * 2) + Math.floor(this.luck / 2); //Do we really need medicine? We have a Biology and Chemistry science skill.
+	this.melee[0] = (this.strength * 2) + Math.floor(this.luck / 2);
+	this.firearms[0] = (this.agility * 2) + Math.floor(this.luck / 2);
+	this.sneak[0] = (this.agility * 2) + Math.floor(this.luck / 2);
+	this.speech[0] = (this.charisma * 2) + Math.floor(this.luck / 2);
+	this.survival[0] = (this.endurance * 2) + Math.floor(this.luck / 2);
+	this.unarmed[0] = (this.endurance * 2) + Math.floor(this.luck / 2);
 	
 	
 
-	this.agriculture = (this.endurance) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2); 
-	this.architecture = (this.perception) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2); 
-	this.biology = (this.perception) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2);
-	this.chemistry = (this.agility) + Math.floor(this.luck / 2 + Math.floor(this.intelligence / 2));
-	this.machines = (this.endurance) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2);
+	this.agriculture[0] = (this.endurance) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2); 
+	this.architecture[0] = (this.perception) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2); 
+	this.biology[0] = (this.perception) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2);
+	this.chemistry[0] = (this.agility) + Math.floor(this.luck / 2 + Math.floor(this.intelligence / 2));
+	this.machines[0] = (this.endurance) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2);
 	}
 	
 	this.setLevel = function(newLevel)
