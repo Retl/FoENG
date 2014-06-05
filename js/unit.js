@@ -64,7 +64,7 @@ var Unit = function () {
 	this.tags;
 	
 	//Methods.
-	this.setSpecial = function(s,p,e,c,i,a,l)
+	this.setSpecial = function (s,p,e,c,i,a,l)
 	{
 		this.strength = s;
 		this.perception = p;
@@ -75,7 +75,7 @@ var Unit = function () {
 		this.luck = l;
 	}
 	
-	this.setDerivedSkills = function()
+	this.setDerivedSkills = function ()
 	{
 	this.barter[0] = (this.charisma * 2) + Math.floor(this.luck / 2);
 	this.explosives[0] = (this.perception * 2) + Math.floor(this.luck / 2);
@@ -98,7 +98,7 @@ var Unit = function () {
 	this.machines[0] = (this.endurance) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2);
 	}
 	
-	this.setLevel = function(newLevel)
+	this.setLevel = function (newLevel)
 	{
 		if (newLevel < 1) {newLevel = 1;}
 		if (newLevel > LevelTable.length) {newLevel = LevelTable.length;}
@@ -109,7 +109,7 @@ var Unit = function () {
 		this.setDerivedSkills();
 	}
 	
-	this.levelUp = function(times)
+	this.levelUp = function (times)
 	{
 		if (typeof times == "undefined") {times = 1}
 		
@@ -136,7 +136,7 @@ var Unit = function () {
 		this.setDerivedSkills();
 	}
 	
-	this.ToString = function()
+	this.ToString = function ()
 	{
 		result ="";
 		result += "Name: " + this.name + "\n";

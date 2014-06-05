@@ -1,4 +1,4 @@
-var runTests = function() 
+var runTests = function () 
 {
 	reportPassFail(testSetSpecial321());
 	reportPassFail(testSetSpecialFAILME());
@@ -8,7 +8,7 @@ var runTests = function()
 	
 }
 
-var testSetSpecial5 = function()
+var testSetSpecial5 = function ()
 {
 	var result = false;
 	console.log("Testing setSpecial(5,5,5,5,5,5,5)")
@@ -18,7 +18,7 @@ var testSetSpecial5 = function()
 	return result;
 }
 
-var testSetSpecial321 = function()
+var testSetSpecial321 = function ()
 {
 	var result = false;
 	console.log("Testing setSpecial(7,6,5,4,3,2,1)")
@@ -28,7 +28,7 @@ var testSetSpecial321 = function()
 	return result;
 }
 
-var testSetSpecialFAILME = function()
+var testSetSpecialFAILME = function ()
 {
 	var result = false;
 	console.log("Testing setSpecial(-5,0,55,5,5,5,5)")
@@ -38,7 +38,7 @@ var testSetSpecialFAILME = function()
 	return result;
 }
 
-var reportPassFail = function(f)
+var reportPassFail = function (f)
 {
 	if (f) {console.log("Passed.")}
 	else {console.log("Failed.");}
