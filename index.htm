@@ -52,10 +52,11 @@ Memo: Junction, Delicious, Open Sans, Lato. I'm thinking Bold Lato for headers a
 			<button id="btn_examine" onmouseup="document.getElementById('main').innerHTML+=test.ToString();">Examine</button>
 			<button id="btn_levelUp" onmouseup="test.levelUp();">Level Up!</button>
 			<br />
-			<button id="btn_ng_mlp" onmouseup="Utilities.AppendToDiv('main', Namer.makeName(mlpfimNames, 2) + '<br />'); Utilities.ScrollToBottom('main')">NameGen: MLPFiM</button>
-			<button id="btn_ng_foe" onmouseup="Utilities.AppendToDiv('main', Namer.makeName(foegvanillanames, 2) + '<br />'); Utilities.ScrollToBottom('main')">NameGen: Fallout: Equestria</button>
-			<button id="btn_ng_foeu" onmouseup="Utilities.AppendToDiv('main', Namer.makeName(foegeneralnames, 2) + '<br />'); Utilities.ScrollToBottom('main')">NameGen: FoE Shared Universe</button>
-			<button id="btn_ng_pinkeyes" onmouseup="Utilities.AppendToDiv('main', Namer.makeName(foepinkeyesnames, 2) + '<br />'); Utilities.ScrollToBottom('main')">NameGen: Pink Eyes</button>
+			<button id="btn_ng_mlp" onmouseup="Utilities.AppendToDiv('main', Namer.makeName(2, mlpfimNames) + '<br />'); Utilities.ScrollToBottom('main')">NameGen: MLPFiM</button>
+			<button id="btn_ng_foe" onmouseup="Utilities.AppendToDiv('main', Namer.makeName(2, foevanillanames) + '<br />'); Utilities.ScrollToBottom('main')">NameGen: Fallout: Equestria</button>
+			<button id="btn_ng_foeu" onmouseup="Utilities.AppendToDiv('main', Namer.makeName(2, foegeneralnames) + '<br />'); Utilities.ScrollToBottom('main')">NameGen: FoE Shared Universe</button>
+			<button id="btn_ng_pinkeyes" onmouseup="Utilities.AppendToDiv('main', Namer.makeName(2, foepinkeyesnames) + '<br />'); Utilities.ScrollToBottom('main')">NameGen: Pink Eyes</button>
+			<button id="btn_ng" onmouseup="Utilities.AppendToDiv('main', Namer.makeName(2, mlpfimNames, foevanillanames, foegeneralnames, foepinkeyesnames) + '<br />'); Utilities.ScrollToBottom('main')">NameGen</button>
 			<br />
 			<button id="btn_back">Back</button>
 		</div>

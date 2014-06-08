@@ -42,28 +42,28 @@ var testSetSpecialFAILME = function ()
 var testNameGen = function ()
 {
 		console.log("--Generating Test Names: FoE General--");
-	console.log(Namer.makeName(foegeneralnames, 3));
-	console.log(Namer.makeName(foegeneralnames, 3));
-	console.log(Namer.makeName(foegeneralnames, 3));
-	console.log(Namer.makeName(foegeneralnames, 2));
-	console.log(Namer.makeName(foegeneralnames, 2));
-	console.log(Namer.makeName(foegeneralnames, 1));
+	console.log(Namer.makeName(3, 3, foegeneralnames));
+	console.log(Namer.makeName(3, foegeneralnames));
+	console.log(Namer.makeName(3, foegeneralnames));
+	console.log(Namer.makeName(2, foegeneralnames));
+	console.log(Namer.makeName(2, foegeneralnames));
+	console.log(Namer.makeName(1, foegeneralnames));
 
 	console.log("--Generating Test Names: FoE Pink Eyes--");
-	console.log(Namer.makeName(foepinkeyesnames, 3));
-	console.log(Namer.makeName(foepinkeyesnames, 3));
-	console.log(Namer.makeName(foepinkeyesnames, 3));
-	console.log(Namer.makeName(foepinkeyesnames, 2));
-	console.log(Namer.makeName(foepinkeyesnames, 2));
-	console.log(Namer.makeName(foepinkeyesnames, 1));
+	console.log(Namer.makeName(3, foepinkeyesnames));
+	console.log(Namer.makeName(3, foepinkeyesnames));
+	console.log(Namer.makeName(3, foepinkeyesnames));
+	console.log(Namer.makeName(2, foepinkeyesnames));
+	console.log(Namer.makeName(2, foepinkeyesnames));
+	console.log(Namer.makeName(1, foepinkeyesnames));
 
 	console.log("--Generating Test Names: MLPFiM--");
-	console.log(Namer.makeName(mlpfimNames, 3));
-	console.log(Namer.makeName(mlpfimNames, 3));
-	console.log(Namer.makeName(mlpfimNames, 3));
-	console.log(Namer.makeName(mlpfimNames, 2));
-	console.log(Namer.makeName(mlpfimNames, 2));
-	console.log(Namer.makeName(mlpfimNames, 1));
+	console.log(Namer.makeName(3, mlpfimNames));
+	console.log(Namer.makeName(3, mlpfimNames));
+	console.log(Namer.makeName(3, mlpfimNames));
+	console.log(Namer.makeName(2, mlpfimNames));
+	console.log(Namer.makeName(2, mlpfimNames));
+	console.log(Namer.makeName(1, mlpfimNames));
 }
 
 var reportPassFail = function (f)

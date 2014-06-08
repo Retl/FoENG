@@ -5,10 +5,10 @@ var Unit = function () {
 	
 	
 	//Stats used for identification, growth, breeding, etc.
-	this.name = "Background Pony";
+	this.name = Namer.makeName(2, mlpfimNames, foevanillanames, foegeneralnames, foepinkeyesnames);
 	this.sex;
 	this.age; //Days, not years. Might want to have a separate display for years, though.
-	this.kind;
+	this.kind = "Pony";
 	this.karma;
 	
 	//The most base representation of character growth.

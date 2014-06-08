@@ -11,9 +11,17 @@ var Namer = function (theBase)
 	//Empty constructor. - Moore
 }
 
-Namer.makeName = function (dict, numberOfNames) //Class/Static Method.
+Namer.makeName = function (numberOfNames) //Class/Static Method.
 	{
 		var result = "";
+		var dict = "";
+		
+		//Take all of the dictionaries given as arguments and combine them.
+		
+		for (i = 1; i < arguments.length; i++) //The first argument is the number of Names to use. Skip that one. - Moore.
+		{
+			dict += arguments[i];
+		}
 		
 		var dictList = dict.split(",");
 		for (i = 0; i < dictList.length; i++)
