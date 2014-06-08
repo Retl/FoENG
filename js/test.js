@@ -41,7 +41,15 @@ var testSetSpecialFAILME = function ()
 
 var testNameGen = function ()
 {
-		console.log("--Generating Test Names: FoE General--");
+	console.log("--Generating Test Names: FoE Vanilla--");
+	console.log(Namer.makeName(3, 3, foevanillanames));
+	console.log(Namer.makeName(3, foevanillanames));
+	console.log(Namer.makeName(3, foevanillanames));
+	console.log(Namer.makeName(2, foevanillanames));
+	console.log(Namer.makeName(2, foevanillanames));
+	console.log(Namer.makeName(1, foevanillanames));
+	
+	console.log("--Generating Test Names: FoE Shared Universe--");
 	console.log(Namer.makeName(3, 3, foegeneralnames));
 	console.log(Namer.makeName(3, foegeneralnames));
 	console.log(Namer.makeName(3, foegeneralnames));

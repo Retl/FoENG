@@ -122,13 +122,13 @@ var Unit = function () {
 				this.xp = LevelTable[this.level];
 				this.level++;
 				this.skillpoints += 10 + (this.intelligence / 2); //TODO: Make an accessor method that gets the value ignoring temporary boosts. - Moore.
-				console.log("Footnote: Level Up! Level ( " + this.level + " )\nNew Perk Added: ");
+				Utilities.Write("Footnote: Level Up! Level ( " + this.level + " )\nNew Perk Added: ");
 			}
 			
 			if (this.level >= LevelTable.length)
 			{
 				//The LevelTable doesn't support levels past this number. You could use a function to auto-calculate needed xp to next level, but for now we're going to hard-cap.
-				console.log("Footnote: Maximum Level Reached.");
+				Utilities.Write("Footnote: Maximum Level Reached.");
 				times = 0;
 			}
 		}

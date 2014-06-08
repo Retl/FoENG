@@ -27,6 +27,8 @@ Memo: Junction, Delicious, Open Sans, Lato. I'm thinking Bold Lato for headers a
 		<script type="text/javascript" src="./js/main.js"></script>
 		<script type="text/javascript" src="./js/test.js"></script>
 		
+		<script type="text/javascript" src="./js/handleUI.js"></script>
+		
 		<link href='http://fonts.googleapis.com/css?family=Lato|Open+Sans' rel='stylesheet' type='text/css'>
 		<link href='./css/overmare.css' rel='stylesheet' type='text/css'>
 	</head>
@@ -49,16 +51,17 @@ Memo: Junction, Delicious, Open Sans, Lato. I'm thinking Bold Lato for headers a
 			
 		<!-- Input Panel -->
 		<div id="input">
-			<button id="btn_examine" onmouseup="document.getElementById('main').innerHTML+=test.ToString();">Examine</button>
-			<button id="btn_levelUp" onmouseup="test.levelUp();">Level Up!</button>
+			<button id="btn_examine" onmouseup="handle_btn_examine();">Examine</button>
+			<button id="btn_levelUp" onmouseup="handle_btn_levelup();">Level Up!</button>
 			<br />
-			<button id="btn_ng_mlp" onmouseup="Utilities.AppendToDiv('main', Namer.makeName(2, mlpfimNames) + '<br />'); Utilities.ScrollToBottom('main')">NameGen: MLPFiM</button>
-			<button id="btn_ng_foe" onmouseup="Utilities.AppendToDiv('main', Namer.makeName(2, foevanillanames) + '<br />'); Utilities.ScrollToBottom('main')">NameGen: Fallout: Equestria</button>
-			<button id="btn_ng_foeu" onmouseup="Utilities.AppendToDiv('main', Namer.makeName(2, foegeneralnames) + '<br />'); Utilities.ScrollToBottom('main')">NameGen: FoE Shared Universe</button>
-			<button id="btn_ng_pinkeyes" onmouseup="Utilities.AppendToDiv('main', Namer.makeName(2, foepinkeyesnames) + '<br />'); Utilities.ScrollToBottom('main')">NameGen: Pink Eyes</button>
-			<button id="btn_ng" onmouseup="Utilities.AppendToDiv('main', Namer.makeName(2, mlpfimNames, foevanillanames, foegeneralnames, foepinkeyesnames) + '<br />'); Utilities.ScrollToBottom('main')">NameGen</button>
+			<button id="btn_ng" onmouseup="handle_btn_ng();">NameGen</button>
 			<br />
-			<button id="btn_back">Back</button>
+			<button id="btn_ng_mlp" onmouseup="handle_btn_ng_mlp()">Toggle MLP:FiM Dictionary</button>
+			<button id="btn_ng_foe" onmouseup="handle_btn_ng_foe()">Toggle Fallout: Equestria Dictionary</button>
+			<button id="btn_ng_foeu" onmouseup="handle_btn_ng_foeu()">Toggle FoE Shared Universe(s) Dictionary</button>
+			<button id="btn_ng_pinkeyes" onmouseup="handle_btn_ng_pinkeyes()">Toggle Pink Eyes Dictionary</button>
+			<br />
+			<button id="btn_back" onmouseup="handle_btn_back()">Back</button>
 		</div>
 			
 		<!-- Footer -->
