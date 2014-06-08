@@ -14,7 +14,7 @@ var Unit = function () {
 	//The most base representation of character growth.
 	this.level = 1;
 	this.xp = 0;
-	this.skillpoints;
+	this.skillpoints = 0;
 	
 	//SPECIAL. Most other stats are derived from this.
 	//[0 base, 1 tag, 2 ranks, 3 perks, 4 books, 5 items, 6 misc]
@@ -27,25 +27,25 @@ var Unit = function () {
 	this.luck;
 	
 	//General applied skill stats.
-	this.barter = [0, 0, 0, 0, 0, 0, 0];
-	this.explosives = [0, 0, 0, 0, 0, 0, 0];
-	this.lockpick = [0, 0, 0, 0, 0, 0, 0];
-	this.mew = [0, 0, 0, 0, 0, 0, 0];
-	this.medicine = [0, 0, 0, 0, 0, 0, 0];
-	this.melee = [0, 0, 0, 0, 0, 0, 0];
-	this.firearms = [0, 0, 0, 0, 0, 0, 0];
-	this.sneak = [0, 0, 0, 0, 0, 0, 0];
-	this.speech = [0, 0, 0, 0, 0, 0, 0];
-	this.survival = [0, 0, 0, 0, 0, 0, 0];
-	this.unarmed = [0, 0, 0, 0, 0, 0, 0];
+	this.barter = new Skill();
+	this.explosives = new Skill();
+	this.lockpick = new Skill();
+	this.mew = new Skill();
+	this.medicine = new Skill();
+	this.melee = new Skill();
+	this.firearms = new Skill();
+	this.sneak = new Skill();
+	this.speech = new Skill();
+	this.survival = new Skill();
+	this.unarmed = new Skill();
 	
 	
 	//Science knowledge stats.
-	this.agriculture = [0, 0, 0, 0, 0, 0, 0]; //Good for creating and sustaining plant growth. Especially for food.
-	this.architecture = [0, 0, 0, 0, 0, 0, 0]; //Necessary for leading construction. Can direct others with the physical strength to complete it.
-	this.biology = [0, 0, 0, 0, 0, 0, 0]; //Includes applications like health. Helps with hunting.
-	this.chemistry = [0, 0, 0, 0, 0, 0, 0];
-	this.machines = [0, 0, 0, 0, 0, 0, 0];
+	this.agriculture = new Skill(); //Good for creating and sustaining plant growth. Especially for food.
+	this.architecture = new Skill(); //Necessary for leading construction. Can direct others with the physical strength to complete it.
+	this.biology = new Skill(); //Includes applications like health. Helps with hunting.
+	this.chemistry = new Skill();
+	this.machines = new Skill();
 	
 	//These stats depend less on character growth, and more on scenario.
 	this.currentWeight;
@@ -77,25 +77,25 @@ var Unit = function () {
 	
 	this.setDerivedSkills = function ()
 	{
-	this.barter[0] = (this.charisma * 2) + Math.floor(this.luck / 2);
-	this.explosives[0] = (this.perception * 2) + Math.floor(this.luck / 2);
-	this.lockpick[0] = (this.perception * 2) + Math.floor(this.luck / 2);
-	this.mew[0] = (this.perception * 2) + Math.floor(this.luck / 2);
-	this.medicine[0] = (this.intelligence * 2) + Math.floor(this.luck / 2); //Do we really need medicine? We have a Biology and Chemistry science skill.
-	this.melee[0] = (this.strength * 2) + Math.floor(this.luck / 2);
-	this.firearms[0] = (this.agility * 2) + Math.floor(this.luck / 2);
-	this.sneak[0] = (this.agility * 2) + Math.floor(this.luck / 2);
-	this.speech[0] = (this.charisma * 2) + Math.floor(this.luck / 2);
-	this.survival[0] = (this.endurance * 2) + Math.floor(this.luck / 2);
-	this.unarmed[0] = (this.endurance * 2) + Math.floor(this.luck / 2);
-	
-	
+		this.barter.setBase((this.charisma * 2) + Math.floor(this.luck / 2));
+		this.explosives.setBase((this.perception * 2) + Math.floor(this.luck / 2));
+		this.lockpick.setBase((this.perception * 2) + Math.floor(this.luck / 2));
+		this.mew.setBase((this.perception * 2) + Math.floor(this.luck / 2));
+		this.medicine.setBase((this.intelligence * 2) + Math.floor(this.luck / 2)); //Do we really need medicine? We have a Biology and Chemistry science skill.
+		this.melee.setBase((this.strength * 2) + Math.floor(this.luck / 2));
+		this.firearms.setBase((this.agility * 2) + Math.floor(this.luck / 2));
+		this.sneak.setBase((this.agility * 2) + Math.floor(this.luck / 2));
+		this.speech.setBase((this.charisma * 2) + Math.floor(this.luck / 2));
+		this.survival.setBase((this.endurance * 2) + Math.floor(this.luck / 2));
+		this.unarmed.setBase((this.endurance * 2) + Math.floor(this.luck / 2));
+		
+		
 
-	this.agriculture[0] = (this.endurance) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2); 
-	this.architecture[0] = (this.perception) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2); 
-	this.biology[0] = (this.perception) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2);
-	this.chemistry[0] = (this.agility) + Math.floor(this.luck / 2 + Math.floor(this.intelligence / 2));
-	this.machines[0] = (this.endurance) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2);
+		this.agriculture.setBase((this.endurance) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2)); 
+		this.architecture.setBase((this.perception) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2)); 
+		this.biology.setBase((this.perception) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2));
+		this.chemistry.setBase((this.agility) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2));
+		this.machines.setBase((this.endurance) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2));
 	}
 	
 	this.setLevel = function (newLevel)
@@ -121,6 +121,7 @@ var Unit = function () {
 			{
 				this.xp = LevelTable[this.level];
 				this.level++;
+				this.skillpoints += 10 + (this.intelligence / 2); //TODO: Make an accessor method that gets the value ignoring temporary boosts. - Moore.
 				console.log("Footnote: Level Up! Level ( " + this.level + " )\nNew Perk Added: ");
 			}
 			
@@ -151,8 +152,11 @@ var Unit = function () {
 		result += "Intelligence: " + this.intelligence + "\n";
 		result += "Agility: " + this.agility + "\n";
 		result += "Luck: " + this.luck + "\n";
-		result += "Machines: " + this.machines + "\n";
-		result += "Biology: " + this.biology + "\n";
+		result += "Machines: " + this.machines.getTotal() + "\n";
+		result += "Biology: " + this.biology.getTotal() + "\n";
+		result += "Skillpoints Remaining: " + this.skillpoints + "\n";
+		result += "<br />";
+		
 		return result;
 	}
 	
