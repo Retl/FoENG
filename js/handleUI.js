@@ -15,58 +15,22 @@ function handle_btn_back()
 
 function handle_btn_ng_mlp()
 {
-	if (!Namer.toggleDictMLP()) 
-	{
-		Utilities.Write("MLPFiM Dictionary Disabled.");
-	}
-	else
-	{
-		Utilities.Write("MLPFiM Dictionary Enabled.");
-	}
-	
-	Utilities.Write(Namer.makeName(2, mlpfimNames));
+	Namer.toggleDictMLP();
 }
 
 function handle_btn_ng_foe()
 {
-	if (!Namer.toggleDictFoE()) 
-	{
-		Utilities.Write("FoE Dictionary Disabled.");
-	}
-	else
-	{
-		Utilities.Write("FoE Dictionary Enabled.");
-	}
-	
-	Utilities.Write(Namer.makeName(2, foevanillanames));
+	Namer.toggleDictFoE();
 }
 
 function handle_btn_ng_foeu()
 {
-	if (!Namer.toggleDictFoEU()) 
-	{
-		Utilities.Write("FoE Shared Universe Dictionary Disabled.");
-	}
-	else
-	{
-		Utilities.Write("FoE Shared Universe Dictionary Enabled.");
-	}
-
-	Utilities.Write(Namer.makeName(2, foegeneralnames));
+	Namer.toggleDictFoEU();
 }
 
 function handle_btn_ng_pinkeyes()
 {
-	if (!Namer.toggleDictFoEPE()) 
-	{
-		Utilities.Write("Pink Eyes Dictionary Disabled.");
-	}
-	else
-	{
-		Utilities.Write("Pink Eyes Dictionary Enabled.");
-	}
-
-	Utilities.Write(Namer.makeName(2, foepinkeyesnames));
+	Namer.toggleDictFoEPE();
 }
 
 function handle_btn_ng()
@@ -78,7 +42,22 @@ function handle_btn_ng()
 	if (Namer.flagFoE) {selectedDicts.push(foevanillanames); temp += "FoE, ";}
 	if (Namer.flagFoEU) {selectedDicts.push(foegeneralnames); temp += "FoEU, ";}
 	if (Namer.flagFoEPE) {selectedDicts.push(foepinkeyesnames); temp += "FoEPE";}
-	Utilities.Write("The toggled dictionaries are: " + temp);
-	Utilities.Write(Namer.makeName(2, selectedDicts));
+	Utilities.Write(Namer.makeName(Namer.howManyNames, selectedDicts));
 
+}
+
+function handle_btn_namesminus()
+{
+	Namer.howManyNames--;
+	if (Namer.howManyNames < 1) {Namer.howManyNames = 1;}
+}
+
+function handle_btn_names2()
+{
+	Namer.howManyNames = 2;
+}
+
+function handle_btn_namesplus()
+{
+	Namer.howManyNames++;
 }

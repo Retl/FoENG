@@ -3,6 +3,8 @@ var Namer = function ()
 	//Empty constructor. - Moore
 }
 
+Namer.howManyNames = 2;
+
 Namer.makeName = function (numberOfNames, secondArg) //Class/Static Method.
 	{
 		var result = "";
