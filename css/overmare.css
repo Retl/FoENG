@@ -13,3 +13,10 @@ button
 {
 	font-family: 'Open Sans', sans-serif;
 }
+
+#main
+{
+	height:385px;
+	width:610px;
+	overflow:auto;
+}

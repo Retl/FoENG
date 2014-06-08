@@ -12,6 +12,13 @@ Memo: Junction, Delicious, Open Sans, Lato. I'm thinking Bold Lato for headers a
 	<head>
 		<title>Overmare</title>
 		
+		<script type="text/javascript" src="./js/utilities.js"></script>
+		
+		<script type="text/javascript" src="./js/dict_MLPFiMNames.js"></script>
+		<script type="text/javascript" src="./js/dict_FoEGeneralNames.js"></script>
+		<script type="text/javascript" src="./js/dict_FoEPinkEyesNames.js"></script>
+		<script type="text/javascript" src="./js/namer.js"></script>
+		
 		<script type="text/javascript" src="./js/inventory.js"></script>
 		<script type="text/javascript" src="./js/skill.js"></script>
 		<script type="text/javascript" src="./js/unit.js"></script>
@@ -43,7 +50,11 @@ Memo: Junction, Delicious, Open Sans, Lato. I'm thinking Bold Lato for headers a
 		<div id="input">
 			<button id="btn_examine" onmouseup="document.getElementById('main').innerHTML+=test.ToString();">Examine</button>
 			<button id="btn_levelUp" onmouseup="test.levelUp();">Level Up!</button>
-
+			<br />
+			<button id="btn_ng_mlp" onmouseup="Utilities.AppendToDiv('main', Namer.makeName(mlpfimNames, 2) + '<br />'); Utilities.ScrollToBottom('main')">NameGen: MLPFiM</button>
+			<button id="btn_ng_foe" onmouseup="Utilities.AppendToDiv('main', Namer.makeName(foegeneralnames, 2) + '<br />'); Utilities.ScrollToBottom('main')">NameGen: FoE General</button>
+			<button id="btn_ng_pinkeyes" onmouseup="Utilities.AppendToDiv('main', Namer.makeName(foepinkeyesnames, 2) + '<br />'); Utilities.ScrollToBottom('main')">NameGen: Pink Eyes</button>
+			<br />
 			<button id="btn_back">Back</button>
 		</div>
 			

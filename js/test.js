@@ -6,6 +6,7 @@ var runTests = function ()
 	
 	test.setLevel(1);
 	
+	testNameGen();
 }
 
 var testSetSpecial5 = function ()
@@ -36,6 +37,33 @@ var testSetSpecialFAILME = function ()
 	if (test.strength == -5 && test.perception == 0 && test.endurance == 55 && test.charisma == 5 && test.intelligence == 5 && test.agility == 5 && test.luck == 5) {result = true;}
 	else {result = false;}
 	return result;
+}
+
+var testNameGen = function ()
+{
+		console.log("--Generating Test Names: FoE General--");
+	console.log(Namer.makeName(foegeneralnames, 3));
+	console.log(Namer.makeName(foegeneralnames, 3));
+	console.log(Namer.makeName(foegeneralnames, 3));
+	console.log(Namer.makeName(foegeneralnames, 2));
+	console.log(Namer.makeName(foegeneralnames, 2));
+	console.log(Namer.makeName(foegeneralnames, 1));
+
+	console.log("--Generating Test Names: FoE Pink Eyes--");
+	console.log(Namer.makeName(foepinkeyesnames, 3));
+	console.log(Namer.makeName(foepinkeyesnames, 3));
+	console.log(Namer.makeName(foepinkeyesnames, 3));
+	console.log(Namer.makeName(foepinkeyesnames, 2));
+	console.log(Namer.makeName(foepinkeyesnames, 2));
+	console.log(Namer.makeName(foepinkeyesnames, 1));
+
+	console.log("--Generating Test Names: MLPFiM--");
+	console.log(Namer.makeName(mlpfimNames, 3));
+	console.log(Namer.makeName(mlpfimNames, 3));
+	console.log(Namer.makeName(mlpfimNames, 3));
+	console.log(Namer.makeName(mlpfimNames, 2));
+	console.log(Namer.makeName(mlpfimNames, 2));
+	console.log(Namer.makeName(mlpfimNames, 1));
 }
 
 var reportPassFail = function (f)
