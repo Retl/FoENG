@@ -42,7 +42,10 @@ function handle_btn_ng()
 	if (Namer.flagFoE) {selectedDicts.push(foevanillanames); temp += "FoE, ";}
 	if (Namer.flagFoEU) {selectedDicts.push(foegeneralnames); temp += "FoEU, ";}
 	if (Namer.flagFoEPE) {selectedDicts.push(foepinkeyesnames); temp += "FoEPE";}
-	Utilities.Write(Namer.makeName(Namer.howManyNames, selectedDicts));
+	var newName = Namer.makeName(Namer.howManyNames, selectedDicts);
+	Utilities.Write(newName);
+	
+	if (typeof test.name != "undefined") {test.name = newName;}
 
 }
 
