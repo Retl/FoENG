@@ -1,11 +1,19 @@
 function handle_btn_examine()
 {
-	 Utilities.Write(test.ToString());
+	 Utilities.Write("Settlement: " + testSettlement.ToString());
+	 Utilities.Write("Selected Unit: " + test.ToString());
 }
 
 function handle_btn_levelup()
 {
 	test.levelUp();
+}
+
+function handle_btn_newPony()
+{
+	testSettlement.addResident(test);
+	test = new Unit();
+	handle_btn_examine();
 }
 
 function handle_btn_back()
@@ -45,7 +53,7 @@ function handle_btn_ng()
 	var newName = Namer.makeName(Namer.howManyNames, selectedDicts);
 	Utilities.Write(newName);
 	
-	if (typeof test.name != "undefined") {test.name = newName;}
+	if (typeof test.myName != "undefined") {test.myName = newName;}
 
 }
 

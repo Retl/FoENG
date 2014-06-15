@@ -5,7 +5,7 @@ var Unit = function () {
 	
 	
 	//Stats used for identification, growth, breeding, etc.
-	this.name = Namer.makeName(2, mlpfimNames, foevanillanames, foegeneralnames, foepinkeyesnames);
+	this.myName = Namer.makeName(2, mlpfimNames, foevanillanames, foegeneralnames, foepinkeyesnames);
 	this.sex;
 	this.age; //Days, not years. Might want to have a separate display for years, though.
 	this.kind = "Pony";
@@ -140,7 +140,7 @@ var Unit = function () {
 	this.ToString = function ()
 	{
 		result ="";
-		result += "Name: " + this.name + "\n";
+		result += "Name: " + this.myName + "\n";
 		result += "Age: " + this.age + "\n";
 		result += "Sex: " + this.sex + "\n";
 		result += "Kind: " + this.kind + "\n";
