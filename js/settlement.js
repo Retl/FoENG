@@ -22,7 +22,7 @@ var Settlement = function ()
 	
 	this.ToString = function ()
 	{
-		return this.myName + " | "+ this.listResidents();
+		return this.myName + " | Residents: "+ this.listResidents();
 	}
 	
 	
