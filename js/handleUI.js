@@ -13,6 +13,8 @@ function handle_btn_newPony()
 {
 	testSettlement.addResident(test);
 	test = new Unit();
+	test.setSpecial(5,5,5,5,5,5,5);
+	test.setLevel(1);
 	handle_btn_examine();
 }
 
