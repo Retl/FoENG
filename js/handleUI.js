@@ -15,7 +15,16 @@ function handle_btn_newPony()
 	test = new Unit();
 	test.setSpecial(5,5,5,5,5,5,5);
 	test.setLevel(1);
+	handle_btn_ng();
 	handle_btn_examine();
+}
+
+function handle_btn_renameSettlement()
+{
+	var newName = Namer.makeName(1, Utilities.GetSelectedDictionaries());
+	Utilities.Write(newName);
+	
+	if (typeof test.myName != "undefined") {testSettlement.myName = newName;}
 }
 
 function handle_btn_back()
@@ -51,13 +60,7 @@ function handle_btn_ng_pinkeyes()
 function handle_btn_ng()
 {
 	
-	selectedDicts = [];
-	temp = "";
-	if (Namer.flagMLP) {selectedDicts.push(mlpfimNames); temp += "MLP, ";}
-	if (Namer.flagFoE) {selectedDicts.push(foevanillanames); temp += "FoE, ";}
-	if (Namer.flagFoEU) {selectedDicts.push(foegeneralnames); temp += "FoEU, ";}
-	if (Namer.flagFoEPE) {selectedDicts.push(foepinkeyesnames); temp += "FoEPE";}
-	var newName = Namer.makeName(Namer.howManyNames, selectedDicts);
+	var newName = Namer.makeName(Namer.howManyNames, Utilities.GetSelectedDictionaries());
 	Utilities.Write(newName);
 	
 	if (typeof test.myName != "undefined") {test.myName = newName;}

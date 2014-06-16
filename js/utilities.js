@@ -48,6 +48,17 @@ Utilities.ArrayNamesToString = function (a)
 	return result;
 }
 
+Utilities.GetSelectedDictionaries = function ()
+{
+	var selectedDicts = [];
+	temp = "";
+	if (Namer.flagMLP) {selectedDicts.push(mlpfimNames); temp += "MLP, ";}
+	if (Namer.flagFoE) {selectedDicts.push(foevanillanames); temp += "FoE, ";}
+	if (Namer.flagFoEU) {selectedDicts.push(foegeneralnames); temp += "FoEU, ";}
+	if (Namer.flagFoEPE) {selectedDicts.push(foepinkeyesnames); temp += "FoEPE";}
+	return selectedDicts;
+}
+
 Utilities.Write = function (newContent) 
 {
 	Utilities.AppendToDiv('main', newContent + '<br />');

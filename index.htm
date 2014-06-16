@@ -35,14 +35,27 @@ Memo: Junction, Delicious, Open Sans, Lato. I'm thinking Bold Lato for headers a
 	<body>
 	
 	<!-- Left Sidebar Panels. -->
-	<div id="mainMenu">
-		
+	<div id="mainMenu" class="panelMenu glossyDarkPinkBack">
+		<ul>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#" onclick="handle_btn_renameSettlement();">Rename Settlment</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+		</ul>
 	</div>
 	
 	<!-- Header -->
-		<div id="header">
+		<div id="header" class="matteBlackBack">
 			<h1>
-				<button id="btn_menu" class="naviconShelf" onclick="handle_btn_menu"></button>
+				<a href="#mainMenu"><button id="btn_menu" class="naviconShelf" onclick="handle_btn_menu();"></button></a>
 				Overmare
 			</h1>
 			
