@@ -1,15 +1,23 @@
 *
 {
 	font-family: 'Open Sans', sans-serif;
+	font-size: 12pt;
 	color: #fab3d1;
 	text-shadow: 0 0 6px #fab3d1;
-	text-align: center;
+	/*text-align: center;*/
 }
 
 h1
 {
 	font-family: 'Lato', sans-serif;
+	font-size: 120%;
 	font-weight: bold;
+	text-align: center;
+}
+
+#input
+{
+	text-align: center;
 }
 
 button
@@ -51,11 +59,14 @@ body
 	
 	height: 385px;
 	width: 610px;
+	padding: 16px 32px 16px 32px; /*Top Right Bottom Left*/
 	overflow: auto;
 	margin:0 auto;
 	
 	border: 2px solid;
 	border-radius: 5px;
+	
+	text-align: left;
 }
 
 #centeredDiv
