@@ -1,6 +1,9 @@
-p
+*
 {
 	font-family: 'Open Sans', sans-serif;
+	color: #fab3d1;
+	text-shadow: 0 0 5px #fab3d1;
+	text-align: center;
 }
 
 h1
@@ -11,14 +14,48 @@ h1
 
 button
 {
+	
+	border-color: #7dd2f3;
+	
 	font-family: 'Open Sans', sans-serif;
+	font-size: 120%;
+	width: 15%;
+	height: 64px;
+	border-radius: 16px;
+	
+	color: #fdf6ae;
+	text-shadow: 0 0 10px #fdf6ae;
+	
+	/* Generated via http://www.colorzilla.com/gradient-editor/ - Moore. */
+	background: rgb(183,222,237); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(183,222,237,1) 0%, rgba(125,210,243,1) 35%, rgba(93,203,247,1) 37%, rgba(183,222,237,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(183,222,237,1)), color-stop(35%,rgba(125,210,243,1)), color-stop(37%,rgba(93,203,247,1)), color-stop(100%,rgba(183,222,237,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(183,222,237,1) 0%,rgba(125,210,243,1) 35%,rgba(93,203,247,1) 37%,rgba(183,222,237,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(183,222,237,1) 0%,rgba(125,210,243,1) 35%,rgba(93,203,247,1) 37%,rgba(183,222,237,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(183,222,237,1) 0%,rgba(125,210,243,1) 35%,rgba(93,203,247,1) 37%,rgba(183,222,237,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(183,222,237,1) 0%,rgba(125,210,243,1) 35%,rgba(93,203,247,1) 37%,rgba(183,222,237,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', endColorstr='#b7deed',GradientType=0 ); /* IE6-9 */
+	/* End of generated CSS. - Moore. */
+}
+
+body
+{
+	background: #202020;
 }
 
 #main
-{
-	height:385px;
-	width:610px;
-	overflow:auto;
+{	
+	background-image: url('../img/terminaltexture_pink_by_team_machine.jpg'); 
+	/*The above background image is a modified version of Fallout Terminal Texture by team-machine on deviantArt.com. http://fav.me/d5cubxx*/
+	background-size: 100% 100%;
+	
+	height: 385px;
+	width: 610px;
+	overflow: auto;
+	margin:0 auto;
+	
+	border: 2px solid;
+	border-radius: 5px;
 }
 
 #centeredDiv
