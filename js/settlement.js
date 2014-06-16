@@ -12,7 +12,10 @@ var Settlement = function ()
 	//public Methods. - Moore
 	this.addResident = function (theResident)
 	{
-		residents.push(theResident);
+		if (residents.indexOf(theResident) == -1)
+		{
+			residents.push(theResident);
+		}
 	}
 	
 	this.listResidents = function ()

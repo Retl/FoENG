@@ -64,8 +64,8 @@ body
 #header
 {
 	width: 100%;
-	margin-left: 0;
-	margin-right: 0;	
+	height: 45px;
+	padding: 2.5rem 0 2.5rem 0;	
 }
 
 .naviconShelf
@@ -74,14 +74,14 @@ body
 	background-position: center;
 	background-size: 100% 100%;
 	
-	width: 36px;
-	height: 36px;
+	width: 45px;
+	height: 45px;
 	padding: 0;
 	
 	position: relative;
 	float: left;
 	
-	border-style: none;
+	/*border-style: none;*/
 }
 
 .panelMenu
