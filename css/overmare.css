@@ -2,7 +2,7 @@
 {
 	font-family: 'Open Sans', sans-serif;
 	color: #fab3d1;
-	text-shadow: 0 0 5px #fab3d1;
+	text-shadow: 0 0 6px #fab3d1;
 	text-align: center;
 }
 
@@ -44,6 +44,7 @@ body
 
 #main
 {	
+	background-color: #300a24;
 	background-image: url('../img/terminaltexture_pink_by_team_machine.jpg'); 
 	/*The above background image is a modified version of Fallout Terminal Texture by team-machine on deviantArt.com. http://fav.me/d5cubxx*/
 	background-size: 100% 100%;
