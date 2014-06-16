@@ -23,6 +23,11 @@ function handle_btn_back()
 	//Currently does nothing. - Moore.
 }
 
+function handle_btn_menu()
+{
+	 Utilities.Write("Displaying Menu..."); //Stub. - Moore.
+}
+
 function handle_btn_ng_mlp()
 {
 	Namer.toggleDictMLP();

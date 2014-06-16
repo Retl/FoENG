@@ -33,23 +33,14 @@ Memo: Junction, Delicious, Open Sans, Lato. I'm thinking Bold Lato for headers a
 		<link href='./css/overmare.css' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
-	
-	<!-- Left Sidebar Panels. -->
-	<div id="mainMenu">
-		
-	</div>
-	
-	<!-- Header -->
-		<div id="header">
-			<h1>
-				<button id="btn_menu" class="naviconShelf" onclick="handle_btn_menu"></button>
-				Overmare
-			</h1>
-			
-		</div>
-	
 	<!-- Alignment Container -->
 	<div id="centeredDiv">
+	
+		<!-- Header -->
+		<div id="header">
+			<h1>Overmare</h1>
+			
+		</div>
 		
 		<!-- Menu Bar -->
 		<div id="menubar">
