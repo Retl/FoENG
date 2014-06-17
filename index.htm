@@ -12,6 +12,7 @@ Memo: Junction, Delicious, Open Sans, Lato. I'm thinking Bold Lato for headers a
 	<head>
 		<title>Overmare</title>
 		
+		<script type="text/javascript" src="./js/gameTime.js"></script>
 		<script type="text/javascript" src="./js/utilities.js"></script>
 		
 		<script type="text/javascript" src="./js/dict_MLPFiMNames.js"></script>
@@ -35,14 +36,51 @@ Memo: Junction, Delicious, Open Sans, Lato. I'm thinking Bold Lato for headers a
 	<body>
 	
 	<!-- Left Sidebar Panels. -->
+	<!-- Main Menu -->
 	<div id="mainMenu" class="panelMenu glossyDarkPinkBack">
 		<ul>
-			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#nameGenMenu">Name Generator</a></li>
+			<li class="menuItem"><a href="#unitManMenu">Manage Allied Wastelanders</a></li>
 			<li class="menuItem"><a href="#" onclick="handle_btn_renameSettlement();">Rename Settlment</a></li>
+			<li class="menuItem"><a href="#" onclick="handle_btn_wait(1);">Advance One Hour</a></li>
+			<li class="menuItem"><a href="#" onclick="handle_btn_wait(24);">Advance One Day</a></li>
 			<li class="menuItem"><a href="#">Close Menu</a></li>
 			<li class="menuItem"><a href="#">Close Menu</a></li>
 			<li class="menuItem"><a href="#">Close Menu</a></li>
 			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+		</ul>
+	</div>
+		
+	<!-- Name Generator Menu -->
+	<div id="nameGenMenu" class="panelMenu glossyDarkPinkBack">
+		<ul>
+			<li class="menuItem"><a onclick="handle_btn_renameSettlement();">Rename Selected Settlement</a></li>
+			<li class="menuItem"><a onclick="handle_btn_ng();">Rename Selected Unit</a></li>
+			<li class="menuItem"><a onclick="handle_btn_namesminus();">Reduce Words Per Name</a></li>
+			<li class="menuItem"><a onclick="handle_btn_names2();">Increase Words Per Name</a></li>
+			<li class="menuItem"><a onclick="handle_btn_namesplus();">Reset Words Per Name to Two</a></li>
+			<li class="menuItem"><a href="#mainMenu">Return to Main Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+		</ul>
+	</div>
+	
+	<!-- Unit Management Menu -->
+	<div id="unitManMenu" class="panelMenu glossyDarkPinkBack">
+		<ul>
+			<li class="menuItem"><a onclick="handle_btn_examine();">Examine Status</a></li>
+			<li class="menuItem"><a onclick="handle_btn_levelup();">Level Up!</a></li>
+			<li class="menuItem"><a onclick="handle_btn_newPony();">Manually Assign Skillpoints</a></li>
+			<li class="menuItem"><a onclick="handle_btn_ng();">Rename Selected Unit</a></li>
+			<li class="menuItem"><a href="#mainMenu">Return to Main Menu</a></li>
 			<li class="menuItem"><a href="#">Close Menu</a></li>
 			<li class="menuItem"><a href="#">Close Menu</a></li>
 			<li class="menuItem"><a href="#">Close Menu</a></li>
@@ -99,7 +137,7 @@ Memo: Junction, Delicious, Open Sans, Lato. I'm thinking Bold Lato for headers a
 			<button id="btn_namesplus" onmouseup="handle_btn_namesplus();">+1 Word</button>
 			
 			<br />
-			<button id="btn_back" onmouseup="handle_btn_back()">Back</button>
+			<button id="btn_back" onmouseup="handle_btn_wait(1);">Wait</button>
 		</div>
 		<!-- Footer -->
 		<div id="footer">

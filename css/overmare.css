@@ -145,6 +145,8 @@ body
 
 .menuItem > a
 {
+	/*visibility: hidden;*/
+
 	height: 100%;
 	
 	font-weight: bold;
@@ -153,7 +155,7 @@ body
 	text-shadow: 0 0 12px #e0e0e0;
 }
 
-#mainMenu:target
+.panelMenu:target
 {
 	width: 20%;
 	overflow-y: auto;

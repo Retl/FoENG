@@ -59,8 +59,28 @@ Utilities.GetSelectedDictionaries = function ()
 	return selectedDicts;
 }
 
+Utilities.RandomIntInRange = function(min, max)
+{
+	//This is an inclusive range. - Moore.
+	var range = Math.abs(max - min) + 1;
+	return Math.floor((Math.random() * range) + min);
+}
+
+Utilities.WriteNoLine = function (newContent) 
+{
+	if (typeof newContent == "undefined")
+	{
+		newContent = "";
+	}
+	Utilities.AppendToDiv('main', newContent);
+	Utilities.ScrollToBottom('main');
+}
+
 Utilities.Write = function (newContent) 
 {
-	Utilities.AppendToDiv('main', newContent + '<br />');
-	Utilities.ScrollToBottom('main');
+	if (typeof newContent == "undefined")
+	{
+		newContent = "";
+	}
+	Utilities.WriteNoLine(newContent + '<br />');
 }

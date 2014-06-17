@@ -1,20 +1,21 @@
 function handle_btn_examine()
 {
-	 Utilities.Write("Settlement: " + testSettlement.ToString());
-	 Utilities.Write("Selected Unit: " + test.ToString());
+	 Utilities.Write("Settlement: " + selectedSettlement.ToString());
+	 Utilities.Write("Selected Unit: " + selectedUnit.ToString());
 }
 
 function handle_btn_levelup()
 {
-	test.levelUp();
+	selectedUnit.levelUp();
 }
 
 function handle_btn_newPony()
 {
-	testSettlement.addResident(test);
+	selectedSettlement.addResident(test);
 	test = new Unit();
-	test.setSpecial(5,5,5,5,5,5,5);
-	test.setLevel(1);
+	selectedUnit = test;
+	selectedUnit.setSpecial(5,5,5,5,5,5,5);
+	selectedUnit.setLevel(1);
 	handle_btn_ng();
 	handle_btn_examine();
 }
@@ -24,12 +25,23 @@ function handle_btn_renameSettlement()
 	var newName = Namer.makeName(1, Utilities.GetSelectedDictionaries());
 	Utilities.Write(newName);
 	
-	if (typeof test.myName != "undefined") {testSettlement.myName = newName;}
+	if (typeof selectedUnit.myName != "undefined") {selectedSettlement.myName = newName;}
 }
 
 function handle_btn_back()
 {
 	//Currently does nothing. - Moore.
+}
+
+function handle_btn_wait(hours)
+{
+	//Advances the time and then reports how much time has passed. - Moore.
+	time.waitHours(hours);
+	time.displayTime();
+	selectedSettlement.DisplayLocation();
+	Utilities.Write();
+	selectedUnit.getReports();
+	
 }
 
 function handle_btn_menu()
@@ -63,7 +75,7 @@ function handle_btn_ng()
 	var newName = Namer.makeName(Namer.howManyNames, Utilities.GetSelectedDictionaries());
 	Utilities.Write(newName);
 	
-	if (typeof test.myName != "undefined") {test.myName = newName;}
+	if (typeof selectedUnit.myName != "undefined") {selectedUnit.myName = newName;}
 
 }
 

@@ -1,3 +1,9 @@
+time = new GameTime();
+
 test = new Unit();
+var selectedUnit = test;
+
 testSettlement = new Settlement();
-testSettlement.addResident(test);
+var selectedSettlement = testSettlement;
+
+selectedSettlement.addResident(test);

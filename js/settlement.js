@@ -23,10 +23,30 @@ var Settlement = function ()
 		return Utilities.ArrayNamesToString(residents);
 	}
 	
+	this.hourly = function ()
+	{
+		//Behaviour that should be done for every hour that passes. - Moore.
+		for (i = 0; i < residents.length; i++)
+		{
+			residents[i].hourly();
+			console.log(residents[i].food);
+		}
+		
+	}
+	
 	this.ToString = function ()
 	{
 		return this.myName + " | Residents: "+ this.listResidents() + "<br />";
 	}
 	
+	this.getName = function ()
+	{
+		return this.myName;
+	}
 	
+	this.DisplayLocation = function()
+	{
+		Utilities.WriteNoLine(" - LOCATION: " + selectedSettlement.myName + ".");
+	}
 }
+
