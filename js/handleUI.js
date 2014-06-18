@@ -33,6 +33,7 @@ function handle_btn_back()
 	//Currently does nothing. - Moore.
 }
 
+//START OF: Time Handlers
 function handle_btn_wait(hours)
 {
 	//Advances the time and then reports how much time has passed. - Moore.
@@ -43,6 +44,36 @@ function handle_btn_wait(hours)
 	selectedUnit.getReports();
 	
 }
+
+function handle_btn_timescale()
+{
+	var oneSec = 1000;
+	var newTime = prompt('Enter the time between turns (in seconds).', 60);
+	 
+	if ( !isNaN( parseFloat(newTime) ) ) //If a valid number was entered, do use that as the time.
+	{
+		newTime = Math.abs(newTime);
+		clearInterval();
+		if (newTime != 0)
+		{
+			gameTimeInterval = setInterval("handle_btn_wait(1)", newTime * oneSec);
+			Utilities.Write("Time will now advance by 1 hour for every "+ newTime +" seconds.");
+		}
+		else 
+		{
+			//If it's zero, assume they don't want any auto-time progression. - Moore.
+		}
+	}
+	else //If the entered value was not a recognized number, don't change the timers.
+	{
+		
+	}
+	 
+	 
+	 
+}
+
+//END OF:  Time Handlers.
 
 function handle_btn_menu()
 {

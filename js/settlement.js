@@ -29,7 +29,6 @@ var Settlement = function ()
 		for (i = 0; i < residents.length; i++)
 		{
 			residents[i].hourly();
-			console.log(residents[i].food);
 		}
 		
 	}
