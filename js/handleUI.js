@@ -53,7 +53,7 @@ function handle_btn_timescale()
 	if ( !isNaN( parseFloat(newTime) ) ) //If a valid number was entered, do use that as the time.
 	{
 		newTime = Math.abs(newTime);
-		clearInterval();
+		clearInterval(gameTimeInterval);
 		if (newTime != 0)
 		{
 			gameTimeInterval = setInterval("handle_btn_wait(1)", newTime * oneSec);
