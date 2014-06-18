@@ -84,3 +84,10 @@ Utilities.Write = function (newContent)
 	}
 	Utilities.WriteNoLine(newContent + '<br />');
 }
+
+
+Utilities.IsNumber = function (input)
+{
+	//Check the input to see if AT LEAST the first character is a digit. If it is, true. If this isn't a number, return false.
+	return !isNaN( parseFloat(input) )
+}

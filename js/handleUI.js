@@ -50,14 +50,14 @@ function handle_btn_timescale()
 	var oneSec = 1000;
 	var newTime = prompt('Enter the time between turns (in seconds).', 60);
 	 
-	if ( !isNaN( parseFloat(newTime) ) ) //If a valid number was entered, do use that as the time.
+	if (Utilities.IsNumber(newTime)) //If a valid number was entered, do use that as the time.
 	{
 		newTime = Math.abs(newTime);
 		clearInterval(gameTimeInterval);
 		if (newTime != 0)
 		{
 			gameTimeInterval = setInterval("handle_btn_wait(1)", newTime * oneSec);
-			Utilities.Write("Time will now advance by 1 hour for every "+ newTime +" seconds.");
+			Utilities.Write("Time will now advance by 1 hour for every "+ newTime +" second(s).");
 		}
 		else 
 		{
