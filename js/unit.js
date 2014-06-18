@@ -302,7 +302,7 @@ var Unit = function () {
 				break;
 								
 			case (this.sleep <= 0):
-				report = this.myName + " can't wake up anymore...";
+				report = this.myName + " can't wake up...";
 				break;
 		}
 		

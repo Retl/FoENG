@@ -18,9 +18,29 @@ var Settlement = function ()
 		}
 	}
 	
+	this.IsHomeOf = function (theResident)
+	{
+		var result = false;
+		if ( residents.indexOf(theResident) != -1)
+		{
+			result = true;
+		}
+		return result;
+	}
+	
 	this.listResidents = function ()
 	{
 		return Utilities.ArrayNamesToString(residents);
+	}
+	
+	this.listResidentsClickable = function ()
+	{
+		return Utilities.ArrayNamesToClickableHTML(residents, "handle_btn_selectUnitInSettlement(selectedSettlement.getResident");
+	}
+	
+	this.getResident = function (i)
+	{
+		return residents[i];
 	}
 	
 	this.hourly = function ()
@@ -35,7 +55,7 @@ var Settlement = function ()
 	
 	this.ToString = function ()
 	{
-		return this.myName + " | Residents: "+ this.listResidents() + "<br />";
+		return this.myName + " | Residents: "+ this.listResidentsClickable() + "<br />";
 	}
 	
 	this.getName = function ()

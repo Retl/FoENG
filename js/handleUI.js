@@ -2,6 +2,7 @@ function handle_btn_examine()
 {
 	 Utilities.Write("Settlement: " + selectedSettlement.ToString());
 	 Utilities.Write("Selected Unit: " + selectedUnit.ToString());
+	 selectedUnit.getReports();
 }
 
 function handle_btn_levelup()
@@ -17,6 +18,7 @@ function handle_btn_newPony()
 	selectedUnit.setSpecial(5,5,5,5,5,5,5);
 	selectedUnit.setLevel(1);
 	handle_btn_ng();
+	selectedSettlement.addResident(test);
 	handle_btn_examine();
 }
 
@@ -74,6 +76,17 @@ function handle_btn_timescale()
 }
 
 //END OF:  Time Handlers.
+
+function handle_btn_selectUnitInSettlement(which)
+{
+	selectedUnit = which; //Example: passing which the value of: selectedSettlement.getResident(3); Maybe consider getResidentByName. - Moore.
+	Utilities.Write("Selected: " + selectedUnit.myName);
+}
+
+function handle_btn_listUnitsInSettlement()
+{
+	//Currently does nothing. - Moore.
+}
 
 function handle_btn_menu()
 {

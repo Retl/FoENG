@@ -16,7 +16,15 @@ var GameTime = function ()
 		while (numHours > 0)
 		{
 			date.setHours(date.getHours() + 1);
-			if (typeof selectedSettlement != "undefined") {selectedSettlement.hourly();}
+			if (typeof selectedSettlement != "undefined") 
+			{
+				selectedSettlement.hourly();
+				if (typeof selectedUnit != "undefined" && !selectedSettlement.IsHomeOf(selectedUnit)) 
+				{
+					selectedUnit.hourly();
+				}
+			}
+			
 			numHours -= 1;
 		}
 	}

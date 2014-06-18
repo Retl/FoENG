@@ -48,6 +48,36 @@ Utilities.ArrayNamesToString = function (a)
 	return result;
 }
 
+Utilities.ArrayNamesToClickableHTML = function (a, onClickString)
+{
+	//Given an array, cycle through all of its contents check to see if each element has a name, then add that to the result. - Moore.
+	var result = "";
+	if (typeof a.length != "undefined")
+	{
+		for (i = 0; i < a.length; i++)
+		{
+			if (typeof a[i].myName != "undefined")
+			{
+				if (i != 0)
+				{
+					result += ", ";
+				}
+				result += "<a onclick='"+ onClickString +"("+ i +"))'>";
+				result += a[i].myName;
+				result += "</a>";
+				
+			}
+		}
+	}
+	
+	if (result == "")
+	{
+		result = "Nothing's here.";
+	}
+	
+	return result;
+}
+
 Utilities.GetSelectedDictionaries = function ()
 {
 	var selectedDicts = [];
