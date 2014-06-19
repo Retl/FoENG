@@ -51,10 +51,14 @@ var Unit = function () {
 	
 	//General applied skill stats.
 	this.barter = new Skill(0, "Barter");
+	this.battleSaddles = new Skill(0, "Battle Saddles");
 	this.explosives = new Skill(0, "Explosives");
 	this.lockpick = new Skill(0, "Lockpick");
 	this.mew = new Skill(0, "MEW");
+	this.medicine = new Skill(0, "Medicine");
 	this.melee = new Skill(0, "Melee");
+	this.mechanics = new Skill(0, "Mechanics");
+	this.science = new Skill(0, "Science");
 	this.firearms = new Skill(0, "Firearms");
 	this.sneak = new Skill(0, "Sneak");
 	this.speech = new Skill(0, "Speech");
@@ -111,26 +115,70 @@ var Unit = function () {
 		this.luck = l;
 	};
 	
+	this.setRandomSpecial = function (s,p,e,c,i,a,l)
+	{
+		var spcl = [s,p,e,c,i,a,l];
+		var totalSpecial= s + p + e + c + i + a + l;
+		var which = 0;
+		var amount = 0;
+		while (totalSpecial != 40)
+			{
+				which = Utilities.RandomInArray(spcl);
+				if (totalSpecial > 40)
+				{
+					amount = -1;
+				}
+				else
+				{
+					amount = Utilities.RandomIntInRange(0, 1);
+					if (amount == 0) {amount = -1;}
+				}
+				
+				
+				
+				if (amount < 0)
+				{
+					if (spcl[which] > 3)
+					{
+						spcl[which]--;
+					}
+				}
+				else 
+				{
+					if (spcl[which] < 10)
+					{
+						spcl[which]++;
+					}
+				}
+				
+				totalSpecial = spcl[0] + spcl[1] + spcl[2] + spcl[3] + spcl[4] + spcl[5] + spcl[6];
+			}
+		
+		this.strength = spcl[0];
+		this.perception = spcl[1];
+		this.endurance = spcl[2];
+		this.charisma = spcl[3];
+		this.intelligence = spcl[4];
+		this.agility = spcl[5];
+		this.luck = spcl[6];
+	};
+	
 	this.setDerivedSkills = function ()
 	{
 		this.barter.setBase((this.charisma * 2) + Math.floor(this.luck / 2));
+		this.battleSaddles.setBase((this.endurance * 2) + Math.floor(this.luck / 2));
 		this.explosives.setBase((this.perception * 2) + Math.floor(this.luck / 2));
 		this.lockpick.setBase((this.perception * 2) + Math.floor(this.luck / 2));
 		this.mew.setBase((this.perception * 2) + Math.floor(this.luck / 2));
+		this.medicine.setBase((this.intelligence * 2) + Math.floor(this.luck / 2));
 		this.melee.setBase((this.strength * 2) + Math.floor(this.luck / 2));
+		this.mechanics.setBase((this.intelligence * 2) + Math.floor(this.luck / 2));
+		this.science.setBase((this.strength * 2) + Math.floor(this.luck / 2));
 		this.firearms.setBase((this.agility * 2) + Math.floor(this.luck / 2));
 		this.sneak.setBase((this.agility * 2) + Math.floor(this.luck / 2));
 		this.speech.setBase((this.charisma * 2) + Math.floor(this.luck / 2));
 		this.survival.setBase((this.endurance * 2) + Math.floor(this.luck / 2));
 		this.unarmed.setBase((this.endurance * 2) + Math.floor(this.luck / 2));
-		
-		
-
-		this.agriculture.setBase((this.endurance) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2)); 
-		this.architecture.setBase((this.perception) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2)); 
-		this.biology.setBase((this.perception) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2));
-		this.chemistry.setBase((this.intelligence * 2) + Math.floor(this.luck / 2)); //Unlike the other general science skills, this is using the PnP formula for 'Medicine'.
-		this.machines.setBase((this.endurance) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2));
 	};
 	
 	this.setLevel = function (newLevel)
@@ -327,23 +375,6 @@ var Unit = function () {
 		return result;
 	};
 	
-	/* This version has a nasty tendency to get stuck in an infinite loop if all skills are maxed.
-	this.autoApplySkillpoints = function(numPoints)
-	{
-		var which = 0;
-		var added = false;
-		while (numPoints > 0)
-		{
-			which = Utilities.RandomInArray(skillList);
-			added = skillList[which].addRank();
-			
-			//Move to the next iteration and reset values. - Moore
-			if (added) {numPoints--;}
-			added = false;
-		}
-	}
-	*/
-	
 	this.autoApplySkillpoints = function(numPoints) //This version is an all-or-nothing attempt to apply the points to one skill.
 	{
 		if (this.hasSkillPoints(numPoints))
@@ -398,6 +429,6 @@ var Unit = function () {
 	};
 	
 	//Return an instance.
-	console.log(this);
+	//console.log(this);
 	return this;
 };
