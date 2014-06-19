@@ -45,7 +45,7 @@ Namer.makeName = function (numberOfNames, secondArg) //Class/Static Method.
 	Namer.flagFoE = true;
 	Namer.flagFoEU = true;
 	Namer.flagFoEPE = true;
-	Namer.flagFoEIRC = false;
+	Namer.flagFoEIRC = true;
 	
 	Namer.toggleDictMLP = function () {Namer.flagMLP = !Namer.flagMLP; return Namer.flagMLP;};
 	Namer.toggleDictFoE = function () {Namer.flagFoE = !Namer.flagFoE; return Namer.flagFoE;};

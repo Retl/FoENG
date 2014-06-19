@@ -12,12 +12,14 @@ Memo: Junction, Delicious, Open Sans, Lato. I'm thinking Bold Lato for headers a
 	<head>
 		<title>Overmare</title>
 		
+		<script type="text/javascript" src="./js/gameTime.js"></script>
 		<script type="text/javascript" src="./js/utilities.js"></script>
 		
 		<script type="text/javascript" src="./js/dict_MLPFiMNames.js"></script>
 		<script type="text/javascript" src="./js/dict_FoEVanillaNames.js"></script>
 		<script type="text/javascript" src="./js/dict_FoEGeneralNames.js"></script>
 		<script type="text/javascript" src="./js/dict_FoEPinkEyesNames.js"></script>
+		<script type="text/javascript" src="./js/dict_FoEIRCNames.js"></script>
 		<script type="text/javascript" src="./js/namer.js"></script>
 		
 		<script type="text/javascript" src="./js/inventory.js"></script>
@@ -33,14 +35,73 @@ Memo: Junction, Delicious, Open Sans, Lato. I'm thinking Bold Lato for headers a
 		<link href='./css/overmare.css' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
-	<!-- Alignment Container -->
-	<div id="centeredDiv">
 	
-		<!-- Header -->
-		<div id="header">
-			<h1>Overmare</h1>
+	<!-- Left Sidebar Panels. -->
+	<!-- Main Menu -->
+	<div id="mainMenu" class="panelMenu glossyDarkPinkBack">
+		<ul>
+			<li class="menuItem"><a href="#nameGenMenu">Name Generator</a></li>
+			<li class="menuItem"><a href="#unitManMenu">Manage Allied Wastelanders</a></li>
+			<li class="menuItem"><a href="#" onclick="handle_btn_renameSettlement();">Rename Settlment</a></li>
+			<li class="menuItem"><a href="#" onclick="handle_btn_wait(1);">Advance One Hour</a></li>
+			<li class="menuItem"><a href="#" onclick="handle_btn_wait(24);">Advance One Day</a></li>
+			<li class="menuItem"><a href="#" onclick="handle_btn_timescale();">Adjust time between turns.</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+		</ul>
+	</div>
+		
+	<!-- Name Generator Menu -->
+	<div id="nameGenMenu" class="panelMenu glossyDarkPinkBack">
+		<ul>
+			<li class="menuItem"><a onclick="handle_btn_renameSettlement();">Rename Selected Settlement</a></li>
+			<li class="menuItem"><a onclick="handle_btn_ng();">Rename Selected Unit</a></li>
+			<li class="menuItem"><a onclick="handle_btn_namesminus();">Reduce Words Per Name</a></li>
+			<li class="menuItem"><a onclick="handle_btn_names2();">Increase Words Per Name</a></li>
+			<li class="menuItem"><a onclick="handle_btn_namesplus();">Reset Words Per Name to Two</a></li>
+			<li class="menuItem"><a href="#mainMenu">Return to Main Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+		</ul>
+	</div>
+	
+	<!-- Unit Management Menu -->
+	<div id="unitManMenu" class="panelMenu glossyDarkPinkBack">
+		<ul>
+			<li class="menuItem"><a onclick="handle_btn_examine();">Examine Status</a></li>
+			<li class="menuItem"><a onclick="handle_btn_levelup();">Level Up!</a></li>
+			<li class="menuItem"><a onclick="handle_btn_newPony();">Manually Assign Skillpoints</a></li>
+			<li class="menuItem"><a onclick="handle_btn_ng();">Rename Selected Unit</a></li>
+			<li class="menuItem"><a href="#mainMenu">Return to Main Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+			<li class="menuItem"><a href="#">Close Menu</a></li>
+		</ul>
+	</div>
+	
+	<!-- Header -->
+		<div id="header" class="matteBlackBack">
+			<h1>
+				<a href="#mainMenu"><button id="btn_menu" class="naviconShelf" onclick="handle_btn_menu();"></button></a>
+				Overmare
+			</h1>
 			
 		</div>
+	
+	<!-- Alignment Container -->
+	<div id="centeredDiv">
 		
 		<!-- Menu Bar -->
 		<div id="menubar">
@@ -55,6 +116,7 @@ Memo: Junction, Delicious, Open Sans, Lato. I'm thinking Bold Lato for headers a
 					<li><strong>MLPFiM Names</strong> consist of canon and fanon character names based on the wiki.</li>
 					<li><strong>FoE Shared Universe</strong> dictionary consists of character names from FoE Sidefics all mixed up.</li>
 					<li><strong>The Fallout: Equestria dictionary and Pink Eyes dictionary</strong> are most of the words from those stories (with some removals).</li>
+					<li><strong>The #FalloutEquestria IRC dictionary </strong> consists of absolute nonsense collected from the Canternet #FalloutEquestria IRC chat.</li>
 				</ul>
 			</p>
 		</div>
@@ -71,13 +133,14 @@ Memo: Junction, Delicious, Open Sans, Lato. I'm thinking Bold Lato for headers a
 			<input type="checkbox" value="foe" checked="checked" id="btn_ng_foe" onmouseup="handle_btn_ng_foe()">Toggle Fallout: Equestria Dictionary</input>
 			<input type="checkbox" value="foeu" checked="checked" id="btn_ng_foeu" onmouseup="handle_btn_ng_foeu()">Toggle FoE Shared Universe(s) Dictionary</input>
 			<input type="checkbox" value="pinkeyes" checked="checked" id="btn_ng_pinkeyes" onmouseup="handle_btn_ng_pinkeyes()">Toggle Pink Eyes Dictionary</input>
+			<input type="checkbox" value="pinkeyes" checked="unchecked" id="btn_ng_irc" onmouseup="handle_btn_ng_irc()">Toggle #FalloutEquestria IRC Dictionary</input>
 			<br />
 			<button id="btn_namesminus" onmouseup="handle_btn_namesminus();">-1 Word</button>
 			<button id="btn_names2" onmouseup="handle_btn_names2();">2 Word Names</button>
 			<button id="btn_namesplus" onmouseup="handle_btn_namesplus();">+1 Word</button>
 			
 			<br />
-			<button id="btn_back" onmouseup="handle_btn_back()">Back</button>
+			<button id="btn_back" onmouseup="handle_btn_wait(1);">Wait</button>
 		</div>
 		<!-- Footer -->
 		<div id="footer">

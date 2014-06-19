@@ -86,7 +86,7 @@ Utilities.GetSelectedDictionaries = function ()
 	if (Namer.flagFoE) {selectedDicts.push(foevanillanames); temp += "FoE, ";}
 	if (Namer.flagFoEU) {selectedDicts.push(foegeneralnames); temp += "FoEU, ";}
 	if (Namer.flagFoEPE) {selectedDicts.push(foepinkeyesnames); temp += "FoEPE";}
-	if (Namer.flagFoEIRC) {selectedDicts.push(foeircnames); temp += "FoEIRC";}
+	if (Namer.flagFoEIRC) {selectedDicts.push(foeircnames); temp += "FoEPE";}
 	return selectedDicts;
 };
 
