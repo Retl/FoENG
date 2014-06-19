@@ -74,8 +74,7 @@ var Unit = function () {
 	this.machines = new Skill(0, "Machines"); //Anything mechanical.
 	
 	this.skillList = [this.barter, this.battleSaddles, this.explosives, this.lockpick, this.mew, this.medicine, this.melee, 
-						this.mechanics, this.science, this.firearms, this.sneak, this.speech, this.survival, this.unarmed, 
-						this.agriculture, this.architecture, this.biology, this.chemistry, this.machines];
+						this.mechanics, this.science, this.firearms, this.sneak, this.speech, this.survival, this.unarmed];
 	
 	//These stats depend less on character growth, and more on scenario.
 	this.currentWeight;
