@@ -73,10 +73,9 @@ var Unit = function () {
 	this.chemistry = new Skill(0, "Chemistry"); //Includes poisons, intoxicants, medicine, and similar.
 	this.machines = new Skill(0, "Machines"); //Anything mechanical.
 	
-	this.skillList = [this.barter, this.explosives, this.lockpick, this.mew, this.melee, 
-						this.firearms, this.sneak, this.speech, this.survival, this.unarmed, 
-						this.agriculture, this.architecture, this.biology, this.chemistry, 
-						this.machines];
+	this.skillList = [this.barter, this.battleSaddles, this.explosives, this.lockpick, this.mew, this.medicine, this.melee, 
+						this.mechanics, this.science, this.firearms, this.sneak, this.speech, this.survival, this.unarmed, 
+						this.agriculture, this.architecture, this.biology, this.chemistry, this.machines];
 	
 	//These stats depend less on character growth, and more on scenario.
 	this.currentWeight;
