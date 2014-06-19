@@ -27,12 +27,12 @@ var GameTime = function ()
 			
 			numHours -= 1;
 		}
-	}
+	};
 	
 	
 	this.timeTo12Hour = function (h24)
 	{
-		var afternoon = "A.M."
+		var afternoon = "A.M.";
 		if (h24 > 12)
 		{
 			h24 -= 12;
@@ -44,11 +44,11 @@ var GameTime = function ()
 			h24 = 12;
 		}
 		return  h24+ " " + afternoon;
-	}
+	};
 	
 	this.displayTime = function()
 	{
 		Utilities.WriteNoLine("Day " + date.getDay() + " - TIME approximately " + this.timeTo12Hour(date.getHours()));
-	}
+	};
 	
-}
+};

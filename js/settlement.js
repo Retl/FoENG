@@ -16,7 +16,7 @@ var Settlement = function ()
 		{
 			residents.push(theResident);
 		}
-	}
+	};
 	
 	this.IsHomeOf = function (theResident)
 	{
@@ -26,46 +26,46 @@ var Settlement = function ()
 			result = true;
 		}
 		return result;
-	}
+	};
 	
 	this.listResidents = function ()
 	{
 		return Utilities.ArrayNamesToString(residents);
-	}
+	};
 	
 	this.listResidentsClickable = function ()
 	{
 		return Utilities.ArrayNamesToClickableHTML(residents, "handle_btn_selectUnitInSettlement(selectedSettlement.getResident");
-	}
+	};
 	
 	this.getResident = function (i)
 	{
 		return residents[i];
-	}
+	};
 	
 	this.hourly = function ()
 	{
 		//Behaviour that should be done for every hour that passes. - Moore.
-		for (i = 0; i < residents.length; i++)
+		for (var i = 0; i < residents.length; i++)
 		{
 			residents[i].hourly();
 		}
 		
-	}
+	};
 	
 	this.ToString = function ()
 	{
 		return this.myName + " | Residents: "+ this.listResidentsClickable() + "<br />";
-	}
+	};
 	
 	this.getName = function ()
 	{
 		return this.myName;
-	}
+	};
 	
 	this.DisplayLocation = function()
 	{
 		Utilities.WriteNoLine(" - LOCATION: " + selectedSettlement.myName + ".");
-	}
-}
+	};
+};
 

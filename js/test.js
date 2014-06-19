@@ -9,37 +9,37 @@ var runTests = function ()
 	testNameGen();
 	
 	reportPassFail(testRandomRange(-100, 100));
-}
+};
 
 var testSetSpecial5 = function ()
 {
 	var result = false;
-	console.log("Testing setSpecial(5,5,5,5,5,5,5)")
+	console.log("Testing setSpecial(5,5,5,5,5,5,5)");
 	selectedUnit.setSpecial(5,5,5,5,5,5,5);
 	if (selectedUnit.strength == 5 && selectedUnit.perception == 5 && selectedUnit.endurance == 5 && selectedUnit.charisma == 5 && selectedUnit.intelligence == 5 && selectedUnit.agility == 5 && selectedUnit.luck == 5) {result = true;}
 	else {result = false;}
 	return result;
-}
+};
 
 var testSetSpecial321 = function ()
 {
 	var result = false;
-	console.log("Testing setSpecial(7,6,5,4,3,2,1)")
+	console.log("Testing setSpecial(7,6,5,4,3,2,1)");
 	selectedUnit.setSpecial(7,6,5,4,3,2,1);
 	if (selectedUnit.strength == 7 && selectedUnit.perception == 6 && selectedUnit.endurance == 5 && selectedUnit.charisma == 4 && selectedUnit.intelligence == 3 && selectedUnit.agility == 2 && selectedUnit.luck == 1) {result = true;}
 	else {result = false;}
 	return result;
-}
+};
 
 var testSetSpecialFAILME = function ()
 {
 	var result = false;
-	console.log("Testing setSpecial(-5,0,55,5,5,5,5)")
+	console.log("Testing setSpecial(-5,0,55,5,5,5,5)");
 	selectedUnit.setSpecial(-5,0,55,5,5,5,5);
 	if (selectedUnit.strength == -5 && selectedUnit.perception == 0 && selectedUnit.endurance == 55 && selectedUnit.charisma == 5 && selectedUnit.intelligence == 5 && selectedUnit.agility == 5 && selectedUnit.luck == 5) {result = true;}
 	else {result = false;}
 	return result;
-}
+};
 
 var testNameGen = function ()
 {
@@ -74,11 +74,11 @@ var testNameGen = function ()
 	console.log(Namer.makeName(2, mlpfimNames));
 	console.log(Namer.makeName(2, mlpfimNames));
 	console.log(Namer.makeName(1, mlpfimNames));
-}
+};
 
 var testRandomRange = function (theMin, theMax)
 {
-	console.log("Testing Utilities.RandomIntInRange("+ theMin +",  "+ theMax +")")
+	console.log("Testing Utilities.RandomIntInRange("+ theMin +",  "+ theMax +")");
 	var result = false;
 	var hitMax = false;
 	var hitMin = false;
@@ -93,14 +93,14 @@ var testRandomRange = function (theMin, theMax)
 	
 	if (hitMax && hitMin) {result = true;}
 	
-	console.log("Completed after " + i + " iterations.")
+	console.log("Completed after " + i + " iterations.");
 	return result;
-}
+};
 
 var reportPassFail = function (f)
 {
-	if (f) {console.log("Passed.")}
+	if (f) {console.log("Passed.");}
 	else {console.log("Failed.");}
-}
+};
 
 runTests();

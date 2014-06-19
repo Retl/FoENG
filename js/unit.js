@@ -1,9 +1,9 @@
 //START SECTION: Leveling Info
 var LEVELCAP = 50;
-var LevelTable = [0, 1000, 3000, 6000, 10000, 15000, 21000, 28000, 36000, 45000, 55000, 66000, 78000, 91000, 105000, 120000, 136000, 153000, 171000, 190000, 210000, 231000, 253000, 276000, 300000, 325000, 351000, 378000, 406000, 435000]
-var LevelTableOld = [0, 1000, 3000, 6000, 10000, 15000, 21000, 28000, 36000, 45000, 55000, 66000, 78000, 91000, 105000, 120000, 136000, 153000, 171000, 190000, 210000, 231000, 253000, 276000, 300000, 325000, 351000, 378000, 406000, 435000]
+var LevelTable = [0, 1000, 3000, 6000, 10000, 15000, 21000, 28000, 36000, 45000, 55000, 66000, 78000, 91000, 105000, 120000, 136000, 153000, 171000, 190000, 210000, 231000, 253000, 276000, 300000, 325000, 351000, 378000, 406000, 435000];
+var LevelTableOld = [0, 1000, 3000, 6000, 10000, 15000, 21000, 28000, 36000, 45000, 55000, 66000, 78000, 91000, 105000, 120000, 136000, 153000, 171000, 190000, 210000, 231000, 253000, 276000, 300000, 325000, 351000, 378000, 406000, 435000];
 
-const pnv = 1; //Project Nevada Constant. Scales hunger/thirst/sleep rates.
+var pnv = 1; //Project Nevada Constant. Scales hunger/thirst/sleep rates.
 
 for (var temp = 0; temp < LEVELCAP; temp++)
 {
@@ -16,7 +16,7 @@ var SexEnum = {
 	MALE: "Male",
 	FEMALE: "Female",
 	OTHER: "Other"
-}
+};
 //END SECTION: Sex Info
 
 var Unit = function () {
@@ -109,7 +109,7 @@ var Unit = function () {
 		this.intelligence = i;
 		this.agility = a;
 		this.luck = l;
-	}
+	};
 	
 	this.setDerivedSkills = function ()
 	{
@@ -131,7 +131,7 @@ var Unit = function () {
 		this.biology.setBase((this.perception) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2));
 		this.chemistry.setBase((this.intelligence * 2) + Math.floor(this.luck / 2)); //Unlike the other general science skills, this is using the PnP formula for 'Medicine'.
 		this.machines.setBase((this.endurance) + Math.floor(this.luck / 2) + Math.floor(this.intelligence / 2));
-	}
+	};
 	
 	this.setLevel = function (newLevel)
 	{
@@ -142,11 +142,11 @@ var Unit = function () {
 		
 		//Update the base stats.
 		this.setDerivedSkills();
-	}
+	};
 	
 	this.levelUp = function (times)
 	{
-		if (typeof times == "undefined") {times = 1}
+		if (typeof times == "undefined") {times = 1;}
 		
 		//Repeat the logic 'times' times.
 		for (;times > 0; times--)
@@ -170,7 +170,7 @@ var Unit = function () {
 		
 		//Update the base stats.
 		this.setDerivedSkills();
-	}
+	};
 	
 	this.hourly = function ()
 	{
@@ -183,7 +183,9 @@ var Unit = function () {
 		if (this.food < 0) {this.food = 0;}
 		if (this.sleep < 0) {this.sleep = 0;}
 		
-	}
+		if (this.hasSkillPoints(10)) {this.autoApplySkillpoints(10);}
+		
+	};
 	
 	this.reportHunger = function ()
 	{
@@ -225,7 +227,7 @@ var Unit = function () {
 		if (report != "") {Utilities.Write(report);}
 		
 		return report;
-	}
+	};
 	
 	this.reportThirst = function ()
 	{
@@ -267,7 +269,7 @@ var Unit = function () {
 		if (report != "") {Utilities.Write(report);}
 		
 		return report;
-	}
+	};
 	
 	this.reportSleep = function ()
 	{
@@ -309,14 +311,55 @@ var Unit = function () {
 		if (report != "") {Utilities.Write(report);}
 		
 		return report;
-	}
+	};
 	
 	this.getReports = function ()
 	{
 		this.reportHunger();
 		this.reportThirst();
 		this.reportSleep();
+	};
+	
+	this.hasSkillPoints = function (num)
+	{
+		var result;
+		result = this.skillpoints >= num;
+		return result;
+	};
+	
+	/* This version has a nasty tendency to get stuck in an infinite loop if all skills are maxed.
+	this.autoApplySkillpoints = function(numPoints)
+	{
+		var which = 0;
+		var added = false;
+		while (numPoints > 0)
+		{
+			which = Utilities.RandomInArray(skillList);
+			added = skillList[which].addRank();
+			
+			//Move to the next iteration and reset values. - Moore
+			if (added) {numPoints--;}
+			added = false;
+		}
 	}
+	*/
+	
+	this.autoApplySkillpoints = function(numPoints) //This version is an all-or-nothing attempt to apply the points to one skill.
+	{
+		if (this.hasSkillPoints(numPoints))
+		{
+			var which = 0;
+			var added = false;
+			
+			which = Utilities.RandomInArray(this.skillList);
+			added = this.skillList[which].addRank(numPoints);
+			
+			//Move to the next iteration and reset values. - Moore
+			if (added) {this.skillpoints -= numPoints;}
+			
+			return added;
+		}
+	};
 	
 	this.ToString = function ()
 	{
@@ -339,7 +382,7 @@ var Unit = function () {
 		
 		result += "<br />";
 		
-		for (i = 0; i < this.skillList.length; i++)
+		for (var i = 0; i < this.skillList.length; i++)
 		{
 			result += this.skillList[i].myName + ": " + this.skillList[i].getTotal();
 			if (i < this.skillList.length - 1) {result += ", ";}
@@ -352,9 +395,9 @@ var Unit = function () {
 		result += "<br />";
 		
 		return result;
-	}
+	};
 	
 	//Return an instance.
 	console.log(this);
 	return this;
-}
+};

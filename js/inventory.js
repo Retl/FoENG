@@ -23,7 +23,7 @@ var Inventory = function ()
 		}
 		else
 		{
-			for (cur = 0; cur < contents.length; cur++) 
+			for (var cur = 0; cur < contents.length; cur++) 
 			//This loop could more easily be done in a recursive loop. - Moore.
 			{
 				result += contents[cur];
@@ -34,10 +34,10 @@ var Inventory = function ()
 			}
 		}
 		return result;
-	}
+	};
 	
 	this.displayContents = function () //Public (Privileged). - Moore.
 	{
 		return getContents();
-	}
-}
+	};
+};

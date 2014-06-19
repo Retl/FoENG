@@ -1,7 +1,7 @@
 var Skill = function (theBase, theName)
 {
 
-	if (typeof theBase == "undefined") {theBase = 0} //If this constructor is called and no base is given, assume 0.
+	if (typeof theBase == "undefined") {theBase = 0;} //If this constructor is called and no base is given, assume 0.
 	//Properties
 	const cap = 100; //Hard limit. If the sum of the skill exceeds this value, it will return this at most.
 	
@@ -17,13 +17,13 @@ var Skill = function (theBase, theName)
 	this.getTotal = function ()
 	{
 		return this.base + this.tag + this.rank + this.perk +  this.item + this.misc;
-	}
+	};
 	
 	//Mutator Methods
 	this.setBase = function (value)
 	{
 		this.base = value;
-	}
+	};
 	
 	this.setTag = function (value)
 	{
@@ -37,30 +37,40 @@ var Skill = function (theBase, theName)
 		}
 		else
 		{
-			console.log("Attempted to set a value (" + value +") that was neither true, false, 15, or 0 for a skill's tag.")
+			console.log("Attempted to set a value (" + value +") that was neither true, false, 15, or 0 for a skill's tag.");
 		}
 		this.base = value;
-	}
+	};
 	
 	this.addRank = function (value)
 	{
 		done = false;
-		if (this.rank + value <= this.cap)
+		if (this.rank + value <= this.getCap())
 		{
 			done = true;
 			this.rank += value;
 		}
 		return done;
-	}
+	};
 	
 	function theCap() {return cap;}
 	
 	this.getCap = function ()
 	{
 		return theCap();
-	}
+	};
+	
+	this.isMaxed = function ()
+	{
+		result = false;
+		if (this.rank + this.base >= this.getCap())
+		{
+			result = true;
+		}
+		return result;
+	};
 	
 	//Return an instance.
 	console.log(this);
 	return this;
-}
+};

@@ -1,25 +1,25 @@
 Utilities = function ()
 {
 	
-}
+};
 
 Utilities.ScrollToBottom = function (elementId) 
 {
 	theDiv = document.getElementById(elementId);
 	theDiv.scrollTop = theDiv.scrollHeight;
-}
+};
 
 Utilities.ScrollToBottom = function (elementId) 
 {
 	theDiv = document.getElementById(elementId);
 	theDiv.scrollTop = theDiv.scrollHeight;
-}
+};
 
 Utilities.AppendToDiv = function (elementId, newContent) 
 {
 	theDiv = document.getElementById(elementId);
 	theDiv.innerHTML += newContent;
-}
+};
 
 Utilities.ArrayNamesToString = function (a)
 {
@@ -27,7 +27,7 @@ Utilities.ArrayNamesToString = function (a)
 	var result = "";
 	if (typeof a.length != "undefined")
 	{
-		for (i = 0; i < a.length; i++)
+		for (var i = 0; i < a.length; i++)
 		{
 			if (typeof a[i].myName != "undefined")
 			{
@@ -46,7 +46,7 @@ Utilities.ArrayNamesToString = function (a)
 	}
 	
 	return result;
-}
+};
 
 Utilities.ArrayNamesToClickableHTML = function (a, onClickString)
 {
@@ -54,7 +54,7 @@ Utilities.ArrayNamesToClickableHTML = function (a, onClickString)
 	var result = "";
 	if (typeof a.length != "undefined")
 	{
-		for (i = 0; i < a.length; i++)
+		for (var i = 0; i < a.length; i++)
 		{
 			if (typeof a[i].myName != "undefined")
 			{
@@ -76,7 +76,7 @@ Utilities.ArrayNamesToClickableHTML = function (a, onClickString)
 	}
 	
 	return result;
-}
+};
 
 Utilities.GetSelectedDictionaries = function ()
 {
@@ -87,14 +87,19 @@ Utilities.GetSelectedDictionaries = function ()
 	if (Namer.flagFoEU) {selectedDicts.push(foegeneralnames); temp += "FoEU, ";}
 	if (Namer.flagFoEPE) {selectedDicts.push(foepinkeyesnames); temp += "FoEPE";}
 	return selectedDicts;
-}
+};
 
 Utilities.RandomIntInRange = function(min, max)
 {
 	//This is an inclusive range. - Moore.
 	var range = Math.abs(max - min) + 1;
 	return Math.floor((Math.random() * range) + min);
-}
+};
+
+Utilities.RandomInArray = function(a)
+{
+	return Utilities.RandomIntInRange(0, a.length - 1);
+};
 
 Utilities.WriteNoLine = function (newContent) 
 {
@@ -104,7 +109,7 @@ Utilities.WriteNoLine = function (newContent)
 	}
 	Utilities.AppendToDiv('main', newContent);
 	Utilities.ScrollToBottom('main');
-}
+};
 
 Utilities.Write = function (newContent) 
 {
@@ -113,11 +118,11 @@ Utilities.Write = function (newContent)
 		newContent = "";
 	}
 	Utilities.WriteNoLine(newContent + '<br />');
-}
+};
 
 
 Utilities.IsNumber = function (input)
 {
 	//Check the input to see if AT LEAST the first character is a digit. If it is, true. If this isn't a number, return false.
-	return !isNaN( parseFloat(input) )
-}
+	return !isNaN( parseFloat(input) );
+};
