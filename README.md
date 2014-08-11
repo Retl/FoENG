@@ -1,3 +1,4 @@
-Overmare-45
+FoENG
 ===========
-http://retl.github.io/Overmare-45
+Fallout: Equestria - Name Generator
+http://retl.github.io/FoENG
